@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
@@ -10,7 +10,12 @@ import { IssueReportComponent } from './issue-report/issue-report.component';
 
 @NgModule({
   declarations: [AppComponent, IssueListComponent, IssueReportComponent],
-  imports: [BrowserModule, ClarityModule, BrowserAnimationsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    ClarityModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

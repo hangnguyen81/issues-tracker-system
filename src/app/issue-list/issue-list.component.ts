@@ -9,13 +9,20 @@ import { Issue } from '../services/issue';
 })
 export class IssueListComponent implements OnInit {
   issues: Issue[] = [];
+  showAddIssue = false;
+
   constructor(private issuesService: IssuesService) {}
+
   ngOnInit(): void {
+    this.getIssues();
+  }
+
+  onCloseReport() {
+    this.showAddIssue = false;
     this.getIssues();
   }
 
   private getIssues() {
     this.issues = this.issuesService.getPendingIssues();
-    console.log(this.issues);
   }
 }

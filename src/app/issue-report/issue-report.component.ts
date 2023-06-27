@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { IssuesService } from '../services/issues.service';
-import { Issue } from '../services/issue';
 
 @Component({
   selector: 'app-issue-report',
@@ -10,10 +9,13 @@ import { Issue } from '../services/issue';
 })
 export class IssueReportComponent implements OnInit {
   issueForm: FormGroup | undefined;
+  @Output() formClose = new EventEmitter();
+
   constructor(
     private formBuilder: FormBuilder,
     private issuesService: IssuesService
   ) {}
+  
   ngOnInit(): void {
     this.issueForm = this.formBuilder.group({
       title: [''],
@@ -23,7 +25,8 @@ export class IssueReportComponent implements OnInit {
     });
   }
 
-  createIssue(issue: Issue) {
-    this.issuesService.createIssue(issue);
+  addIssue() {
+    this.issuesService.createIssue(this.issueForm?.value);
+    this.formClose.emit();
   }
 }

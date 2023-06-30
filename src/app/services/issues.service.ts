@@ -8,11 +8,22 @@ import { issues } from '../../assets/mock-issues';
 export class IssuesService {
   private issues: Issue[] = issues;
   constructor() {}
+
   getPendingIssues(): Issue[] {
     return this.issues.filter((issue) => !issue.resolvedDate);
   }
+
   createIssue(issue: Issue) {
     issue.issueNo = this.issues.length + 1;
     this.issues.push(issue);
+  }
+
+  resolveIssue(issue: Issue) {
+    const selectedIssue: Issue = {
+      ...issue,
+      resolvedDate: new Date(),
+    };
+    const index = this.issues.findIndex((i) => i === issue);
+    this.issues[index] = selectedIssue;
   }
 }

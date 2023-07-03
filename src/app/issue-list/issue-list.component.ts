@@ -11,6 +11,7 @@ export class IssueListComponent implements OnInit {
   issues: Issue[] = [];
   showAddIssue = false;
   selectedIssue: Issue | null = null;
+  action = 'edit | resolve | reject';
 
   constructor(private issuesService: IssuesService) {}
 

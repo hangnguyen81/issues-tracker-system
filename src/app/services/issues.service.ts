@@ -18,6 +18,10 @@ export class IssuesService {
     this.issues.push(issue);
   }
 
+  getIssue(issueNo: number): Issue[]{
+    return this.issues.filter(i => i.issueNo === issueNo)
+  }
+
   resolveIssue(issue: Issue) {
     const selectedIssue: Issue = {
       ...issue,

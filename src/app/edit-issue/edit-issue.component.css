@@ -1,0 +1,12 @@
+.clr-form{
+    min-width: 500px;
+  }
+  
+  .clr-input,
+  .clr-textarea{
+    width: 100%;
+  }
+  
+  button {
+    margin-top: 24px;
+  }

@@ -31,6 +31,11 @@ export class IssueListComponent implements OnInit {
     }
   }
 
+  startAction(issue: Issue, action:string = 'edit'){
+    this.selectedIssue = issue;
+    this.action = action;
+  }
+
   private getIssues() {
     this.issues = this.issuesService.getPendingIssues();
   }

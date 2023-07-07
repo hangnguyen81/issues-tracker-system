@@ -12,19 +12,15 @@
     <clr-dg-column [clrDgField]="'priority'">Priority</clr-dg-column>
     <clr-dg-row *ngFor="let issue of issues">
       <clr-dg-action-overflow>
-        <button
-          class="action-item"
-          (click)="selectedIssue = issue; action = 'edit'"
-        >
+        <button class="action-item" (click)="startAction(issue, 'edit')">
           Edit
         </button>
-        <button
-          class="action-item"
-          (click)="selectedIssue = issue; action = 'resolve'"
-        >
+        <button class="action-item" (click)="startAction(issue, 'resolve')">
           Resolve
         </button>
-        <button class="action-item">Reject</button>
+        <button class="action-item" (click)="startAction(issue, 'reject')">
+          Reject
+        </button>
       </clr-dg-action-overflow>
       <clr-dg-cell>{{ issue.issueNo }}</clr-dg-cell>
       <clr-dg-cell>{{ issue.type }}</clr-dg-cell>
